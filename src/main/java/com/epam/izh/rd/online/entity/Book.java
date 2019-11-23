@@ -17,4 +17,66 @@ import java.util.Objects;
  */
 public abstract class Book {
 
+    // поля
+
+    private int numberOfPages;
+    private String name;
+
+    // конструкторы
+
+    public Book() {
+    }
+
+    public Book(int numberOfPages, String name) {
+        this.numberOfPages = numberOfPages;
+        this.name = name;
+    }
+
+    // геттеры
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // сеттеры
+
+    public void setNumberOfPages(int numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // переопределение equals
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return numberOfPages == book.numberOfPages &&
+                Objects.equals(name, book.name);
+    }
+
+    // переопределение hashCode
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numberOfPages, name);
+    }
+
+    // переопределение toString
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "numberOfPages=" + numberOfPages +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
