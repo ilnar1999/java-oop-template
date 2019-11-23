@@ -4,7 +4,7 @@ import com.epam.izh.rd.online.entity.Author;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class SimpleAuthorRepository implements AuthorRepository {
-    Author[] authors = new Author[]{};
+    private Author[] authors = new Author[]{};
 
     @Override
     public boolean save(Author author) {
@@ -30,6 +30,7 @@ public class SimpleAuthorRepository implements AuthorRepository {
         if (findByFullName(author.getName(),author.getLastName()) != null) {
             int index = ArrayUtils.indexOf(authors, author);
             authors = ArrayUtils.remove(authors, index);
+            return true;
         }
         return false;
     }

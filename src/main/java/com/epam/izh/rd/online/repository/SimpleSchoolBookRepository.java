@@ -4,7 +4,7 @@ import com.epam.izh.rd.online.entity.SchoolBook;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class SimpleSchoolBookRepository implements BookRepository<SchoolBook> {
-    SchoolBook[] schoolBooks = new SchoolBook[]{};
+    private SchoolBook[] schoolBooks = new SchoolBook[]{};
 
     @Override
     public boolean save(SchoolBook book) {
